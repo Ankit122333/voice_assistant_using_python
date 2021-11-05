@@ -11,5 +11,6 @@ import subprocess
 import wolframalpha
 import json
 import requests
+import pyaudio
 
-text to speech will be in new file
+
