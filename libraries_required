@@ -11,3 +11,5 @@ import subprocess
 import wolframalpha
 import json
 import requests
+
+text to speech will be in new file
