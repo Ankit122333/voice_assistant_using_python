@@ -32,8 +32,8 @@ def speak(audio):
     engine.setProperty("voice",voices[1].id)        # setter method .[0]=male voice and [1]=female voice in set Property.
 
     engine.say(audio)       # method for speaking of the assistant
-    engine.runAndWait()		#This function Blocks while processing all currently queued commands.
-				#and returns back when all commands queued before this call are emptied from the queue.
+    engine.runAndWait()
+
 def tellday():
     day=datetime.datetime.today().weekday()+1   #it will indicate the number or key
 	                                            # that will help  in telling the day
@@ -55,7 +55,7 @@ def telltime():
     speak("the time is"+hr+" hours and "+min+"minutes")
 
 def hello():
-    speak("hello sir, i am your desktop assistant,tell me how may i help you")
+    speak("hello sir, i am your desktop assistant. tell me how may i help you")
 
 def take_query():
     hello()         # calling the Hello function for making it more interactive
@@ -79,8 +79,8 @@ def take_query():
         elif "who created you" in query or "who made you" in query:
             speak("i am created by ankit and prince")
             continue
-        elif "i love you" in query or "i fall in love with you emily" in query:	
-	    speak("dont you think its too hurry, you should give me some time.")
+        elif "i love you" in query or "i fall in love with you emily" in query:
+            speak("dont you think its too hurry, you should give me some time.")
             continue
 
         #2. JOKES
@@ -128,16 +128,22 @@ def take_query():
             webbrowser.open("http://www.gmail.com")
             continue
 
-        #9 CONCLUDING TIME
+        #9.NEWS HEADLINES
+        elif "news" in query:
+            webbrowser.open("https://timesofindia.indiatimes.com/home/headlines")
+            speak("here are some headlines from times of india")
+            continue
+
+        #10. CONCLUDING TIME
         elif "bye" in query or "bye bye" in query or "good bye" in query:
             speak("bye bye sir,have a good day ahead")       # this will exit and terminate the program
             exit()
 
-        #10.SHUTTING DOWN THE SYSTEM
+        #11.SHUTTING DOWN THE SYSTEM
         elif "shutdown system " in query:
             speak("your system is shutting down..")
             subprocess.call("shutdown /p/f")
-            exit()
+            continue
 
 
 if __name__=="__main__":
