@@ -143,7 +143,7 @@ def take_query():
         #11.SHUTTING DOWN THE SYSTEM
         elif "shutdown system " in query:
             speak("your system is shutting down..")
-            subprocess.call("shutdown /p/f")
+            subprocess.call(["shutdown","/l"])
             continue
 
 
