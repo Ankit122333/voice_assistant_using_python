@@ -108,8 +108,9 @@ def take_query():
 
         #5. ACCESSING GOOGLE
         elif "google" in query:
-            speak("opening google")
-            webbrowser.open("http://www.google.com")
+            query= query.replace("google","")
+            speak("searching in google")
+            webbrowser.open(query)
             exit()
 
         #6. ACCESSING TODAY'S DAY
