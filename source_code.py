@@ -5,6 +5,7 @@ import wikipedia        # extracts data’s required from Wikipedia
 import datetime     # inbuilt module to access the date n time 
 import webbrowser   # inbuilt module to fetch the data from web
 import pyjokes
+import time
 
 def takecommand():
     r=sr.Recognizer()
@@ -88,13 +89,13 @@ def take_query():
             speak("here are some jokes for you sir..")
             speak(pyjokes.get_joke())
             print(pyjokes.get_joke())
-            continue
+            time.sleep(2)
         
         #3. ACCESSING YOUTUBE
         elif "youtube" in query or "play youtube" in query or "open youtube" in query:
             speak("opening youtube")                            # in the open method we just to give the link
             webbrowser.open("http://www.youtube.com")           # of the website and it automatically open
-            exit()                                              # it in your default browser
+            time.sleep(5)                                              # it in your default browser
 
         #4. ACCESSING WIKIPEDIA
         elif "from wikipedia" in query:
@@ -105,35 +106,36 @@ def take_query():
             speak("according to wikipedia..")
             print(result)
             speak(result)
+            time.sleep(2)
 
         #5. ACCESSING GOOGLE
         elif "google" in query:
-            query= query.replace("google","")
             speak("searching in google")
-            webbrowser.open(query)
-            exit()
+            webbrowser.open("http://www.google.com")
+            time.sleep(5)
 
         #6. ACCESSING TODAY'S DAY
         elif "which day it is" in query or "what is the today" in query or "day" in query:
             tellday()
-            continue
+            time.sleep(2)
 
         #7. ACCESSING DATE AND INSTANT TIME
         elif "time" in query or "what is the time now" in query or "tell me the time" in query:
             telltime()
-            continue
+            time.sleep(2)
 
         #8. OPENING MY MAIL
         elif "mail" in query or "open my gmail" in query:
             speak("accessing your mail")
             webbrowser.open("http://www.gmail.com")
-            continue
+            speak("mail is opened in new tab")
+            time.sleep(2)
 
         #9.NEWS HEADLINES
         elif "news" in query:
             webbrowser.open("https://timesofindia.indiatimes.com/home/headlines")
             speak("here are some headlines from times of india")
-            continue
+            time.sleep(2)
 
         #10. CONCLUDING TIME
         elif "bye" in query or "bye bye" in query or "good bye" in query:
@@ -144,6 +146,11 @@ def take_query():
         elif "shutdown system " in query:
             speak("your system is shutting down..")
             subprocess.call(["shutdown","/l"])
+            exit()
+        #12.
+        elif "search"  in query:
+            query = query.replace("search", "")
+            webbrowser.open_new_tab(query)
             continue
 
 
