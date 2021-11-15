@@ -32,8 +32,8 @@ def speak(audio):
     engine.setProperty("voice",voices[1].id)        # setter method .[0]=male voice and [1]=female voice in set Property.
 
     engine.say(audio)       # method for speaking of the assistant
-    engine.runAndWait()
-
+    engine.runAndWait()		#This function Blocks while processing all currently queued commands.
+				#and returns back when all commands queued before this call are emptied from the queue.
 def tellday():
     day=datetime.datetime.today().weekday()+1   #it will indicate the number or key
 	                                            # that will help  in telling the day
