@@ -79,6 +79,9 @@ def take_query():
         elif "who created you" in query or "who made you" in query:
             speak("i am created by ankit and prince")
             continue
+        elif "i love you" in query or "i fall in love with you emily" in query:	
+	    speak("dont you think its too hurry, you should give me some time.")
+            continue
 
         #2. JOKES
         elif "joke" in query:
