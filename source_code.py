@@ -5,7 +5,7 @@ import wikipedia        # extracts data’s required from Wikipedia
 import datetime     # inbuilt module to access the date n time 
 import webbrowser   # inbuilt module to fetch the data from web
 import pyjokes
-import time
+import time	    # retrieves the current time
 
 def takecommand():
     r=sr.Recognizer()
